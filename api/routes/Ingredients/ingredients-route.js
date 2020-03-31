@@ -43,10 +43,11 @@ router.post('/:id', (req, res) => {
 })
 
 // DELETE ingredient from recipe
-router.delete('/:id/recipe', (req, res) => {
-	const id = req.params.id;
+router.delete('/:ingredId/recipe/:recId', (req, res) => {
+	const ingredientId = req.params.ingredId;
+	const recipeId = req.params.recId;
 
-	Ingredients.removeFromRecipe(id)
+	Ingredients.removeFromRecipe(recipeId, ingredientId)
 		.then(count => {
 			res.status(200).json(count);
 		})

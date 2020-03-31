@@ -32,8 +32,13 @@ function addIngredientToRecipe(data) {
 		.insert(data)
 }
 
-function removeFromRecipe(id) {
+function removeFromRecipe(recipeId, ingredientId) {
+	// select * from recipes_ingredients where recipe_id = 3 and ingredient_id = 15
+
 	return db('recipes_ingredients')
-		.where('id', id)
+		.where({
+			recipe_id: recipeId,
+			ingredient_id: ingredientId
+		})
 		.del();
 }
