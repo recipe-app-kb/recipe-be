@@ -14,6 +14,7 @@ router.get('/:id', (req, res) => {
 		})
 })
 
+// POST step to recipe
 router.post('/', (req, res) => {
 	const data = req.body;
 
@@ -23,6 +24,33 @@ router.post('/', (req, res) => {
 		})
 		.catch(err => {
 			res.status(500).json({ message: 'Unable to add step', error: err });
+		})
+})
+
+// DELETE step from recipe
+router.delete('/:id', (req, res) => {
+	const id = req.params.id;
+
+	Steps.removeStep(id)
+		.then(count => {
+			res.status(200).json(count)
+		})
+		.catch(err => {
+			res.status(500).json({ message: 'Unable to delete step', error: err })
+		})
+})
+
+// PUT step details
+router.put('/:id', (req, res) => {
+	const id = req.params.id;
+	const changes = req.body
+
+	Steps.updateStep(id, changes)
+		.then(count => {
+			res.status(200).json(count)
+		})
+		.catch(err => {
+			res.status(500).json({ message: 'Unable to update step', error: err })
 		})
 })
 
