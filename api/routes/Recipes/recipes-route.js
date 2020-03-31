@@ -45,6 +45,20 @@ router.delete('/:id', validateRecipeId, restricted, (req, res) => {
 		})
 })
 
+// Update recipe route
+router.put('/:id', validateRecipeId, restricted, (req, res) => {
+	const changes = req.body;
+	const id = req.params.id
+
+	Recipes.update(id, changes)
+		.then(update => {
+			res.status(200).json(update)
+		})
+		.catch(err => {
+			res.status(500).json({ message: 'Unable to update recipe', error: err })
+		})
+})
+
 // Get ingredients for a recipe
 router.get('/:id/ingredients', (req, res) => {
 	const id = req.params.id;

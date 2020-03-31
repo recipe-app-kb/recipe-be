@@ -56,7 +56,7 @@ function remove(id) {
 		.del();
 }
 
-function update(data, id) {
+function update(id, data) {
 	return db('recipes')
 		.where('id', id)
 		.update(data);
