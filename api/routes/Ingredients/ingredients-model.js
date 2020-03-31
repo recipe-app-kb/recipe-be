@@ -5,7 +5,8 @@ module.exports = {
 	getAll,
 	insert,
 	addIngredientToRecipe,
-	removeFromRecipe
+	removeFromRecipe,
+	updateIngredients
 }
 
 function getIngredientsByRecipe(recipeId) {
@@ -41,4 +42,15 @@ function removeFromRecipe(recipeId, ingredientId) {
 			ingredient_id: ingredientId
 		})
 		.del();
+}
+
+// Update ingredient per recipe
+function updateIngredients(data) {
+
+	return db('recipes_ingredients')
+		.where({
+			recipe_id: data.recipe_id,
+			ingredient_id: data.ingredient_id
+		})
+		.update(data)
 }
