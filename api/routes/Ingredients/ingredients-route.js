@@ -44,12 +44,17 @@ router.post('/:id', (req, res) => {
 
 // DELETE ingredient from recipe
 router.delete('/:ingredId/recipe/:recId', (req, res) => {
-	const ingredientId = req.params.ingredId;
-	const recipeId = req.params.recId;
+	const ingredientId = parseInt(req.params.ingredId);
+	const recipeId = parseInt(req.params.recId);
 
 	Ingredients.removeFromRecipe(recipeId, ingredientId)
 		.then(count => {
-			res.status(200).json(count);
+			console.log(count)
+			if (count > 0) {
+				res.status(200).json(count);
+			} else {
+				res.status(400).json("Bad id number")
+			}
 		})
 		.catch(err => {
 			res.status(500).json({ message: 'Unable to delete ingredient', error: err });
