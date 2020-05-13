@@ -49,7 +49,6 @@ router.delete('/:ingredId/recipe/:recId', (req, res) => {
 
 	Ingredients.removeFromRecipe(recipeId, ingredientId)
 		.then(count => {
-			console.log(count)
 			if (count > 0) {
 				res.status(200).json(count);
 			} else {
