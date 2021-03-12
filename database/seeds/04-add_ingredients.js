@@ -21,14 +21,14 @@ exports.seed = function (knex) {
         { id: 14, name: 'Brown Sugar' },
         { id: 15, name: 'Siracha' },
         { id: 16, name: 'Sugar' },
-        { id: 17, name: 'all-purpose flour' },
-        { id: 18, name: 'ground cinnamon' },
-        { id: 19, name: 'ground ginger' },
-        { id: 20, name: ' ground nutmeg' },
-        { id: 21, name: 'apples' },
-        { id: 22, name: 'lemon juice' },
-        { id: 23, name: 'double-crust pie' },
-        { id: 24, name: 'butter' }
+        { id: 17, name: 'All-Purpose Flour' },
+        { id: 18, name: 'Ground Cinnamon' },
+        { id: 19, name: 'Ground Ginger' },
+        { id: 20, name: 'Ground Nutmeg' },
+        { id: 21, name: 'Apples' },
+        { id: 22, name: 'Lemon Juice' },
+        { id: 23, name: 'Double-Crust Pie' },
+        { id: 24, name: 'Butter' }
       ]);
     });
 };
