@@ -82,7 +82,7 @@ router.put('/:ingredId/recipe/:recId', (req, res) => {
 			res.status(200).json(count)
 		})
 		.catch(err => {
-			res.status(500).json({ message: 'Unable to update ingredient', error: err })
+			res.status(500).json({ errorMesage: err.message, error: err, error: "Unable to update ingredient" })
 		})
 })
 
